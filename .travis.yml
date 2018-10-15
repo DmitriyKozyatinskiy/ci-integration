@@ -5,5 +5,5 @@ env:
 install:
   - npm install
 script:
-  - "npm run tslint"
-  - "npm run build"
+  - npm run tslint
+  - npm run build
