@@ -1,6 +1,6 @@
 {
   "name": "ci-integration",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "IPS team project",
   "main": "./src/index.ts",
   "engines": {
