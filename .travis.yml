@@ -4,6 +4,7 @@ env:
   - NODE_ENV=production
 install:
   - npm install
+  - npm ls
 script:
   - npm run tslint
   - npm run build
