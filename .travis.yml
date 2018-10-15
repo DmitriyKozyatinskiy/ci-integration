@@ -1,10 +1,7 @@
 language: "node_js"
-node_js: "8"
-env:
-  - NODE_ENV=production
+node_js: "10"
 install:
   - npm install
-  - npm ls
 script:
   - npm run tslint
   - npm run build
