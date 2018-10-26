@@ -1,19 +1,41 @@
-import * as http from 'http';
 import * as dotenv from 'dotenv';
+import * as http from 'http';
 
-dotenv.load();
+import {
+  getVersionNotification,
+} from './utils';
 
-const hostname = '127.0.0.1';
-const port = process.env.PORT || 3000;
+import {
+  getCurrentESTTime,
+  getCurrentCETTime,
+  getCurrentUTCTime,
+} from './requests';
 
-console.log(process.env.VERSION);
+dotenv.config();
 
-const server = http.createServer((req, res) => {
+const { HOSTNAME = '127.0.0.1', PORT = '8000', VERSION } = process.env;
+
+const server = http.createServer(async (req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.end(`Current app version: ${process.env.VERSION}\n`);
+
+  const appVersionNotification = getVersionNotification(VERSION);
+
+  const [estTime, cetTime, utcTime] = await Promise.all([
+    getCurrentESTTime(),
+    getCurrentCETTime(),
+    getCurrentUTCTime(),
+  ]);
+
+  res.end(`
+    ${appVersionNotification}
+    ${estTime}
+    ${cetTime}
+    ${utcTime}
+  `);
 });
 
-server.listen(port, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+// @ts-ignore
+server.listen(PORT, HOSTNAME, () => {
+  console.log(`Server running at http://${HOSTNAME}:${PORT}/`);
 });
