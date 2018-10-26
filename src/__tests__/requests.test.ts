@@ -8,54 +8,56 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-it('EST time request should response with correct time', async () => {
-  const response = {
-    data: {
-      currentDateTime: '2018-10-26T06:21-04:00',
-    },
-  };
+describe('Requests', () => {
+  it('EST time request should response with correct time', async () => {
+    const response = {
+      data: {
+        currentDateTime: '2018-10-26T06:21-04:00',
+      },
+    };
 
-  // @ts-ignore
-  axios.get.mockResolvedValue(response);
+    // @ts-ignore
+    axios.get.mockResolvedValue(response);
 
-  const time = await getCurrentESTTime();
+    const time = await getCurrentESTTime();
 
-  expect(axios.get).toHaveBeenCalledTimes(1);
-  expect(axios.get).toHaveBeenCalledWith(URL_EST_TIME);
+    expect(axios.get).toHaveBeenCalledTimes(1);
+    expect(axios.get).toHaveBeenCalledWith(URL_EST_TIME);
 
-  expect(time).toEqual('2018-10-26T06:21-04:00');
-});
+    expect(time).toEqual('2018-10-26T06:21-04:00');
+  });
 
-it('CET time request should response with the correct time', async () => {
-  const response = {
-    data: {
-      currentDateTime: '2018-10-26T17:15+02:00',
-    },
-  };
+  it('CET time request should response with the correct time', async () => {
+    const response = {
+      data: {
+        currentDateTime: '2018-10-26T17:15+02:00',
+      },
+    };
 
-  // @ts-ignore
-  axios.get.mockResolvedValue(response);
+    // @ts-ignore
+    axios.get.mockResolvedValue(response);
 
-  const time = await getCurrentCETTime();
+    const time = await getCurrentCETTime();
 
-  expect(axios.get).toHaveBeenCalledTimes(1);
-  expect(axios.get).toHaveBeenCalledWith(URL_CET_TIME);
-  expect(time).toEqual('2018-10-26T17:15+02:00');
-});
+    expect(axios.get).toHaveBeenCalledTimes(1);
+    expect(axios.get).toHaveBeenCalledWith(URL_CET_TIME);
+    expect(time).toEqual('2018-10-26T17:15+02:00');
+  });
 
-it('UTC time request should response with the correct time', async () => {
-  const response = {
-    data: {
-      currentDateTime: '2018-10-26T16:04Z',
-    },
-  };
+  it('UTC time request should response with the correct time', async () => {
+    const response = {
+      data: {
+        currentDateTime: '2018-10-26T16:04Z',
+      },
+    };
 
-  // @ts-ignore
-  axios.get.mockResolvedValue(response);
+    // @ts-ignore
+    axios.get.mockResolvedValue(response);
 
-  const time = await getCurrentUTCTime();
+    const time = await getCurrentUTCTime();
 
-  expect(axios.get).toHaveBeenCalledTimes(1);
-  expect(axios.get).toHaveBeenCalledWith(URL_UTC_TIME);
-  expect(time).toEqual('2018-10-26T16:04Z');
+    expect(axios.get).toHaveBeenCalledTimes(1);
+    expect(axios.get).toHaveBeenCalledWith(URL_UTC_TIME);
+    expect(time).toEqual('2018-10-26T16:04Z');
+  });
 });
