@@ -9,7 +9,7 @@ afterEach(() => {
 });
 
 describe('Requests', () => {
-  it('EST time request should response with correct time', async () => {
+  it('Should response with correct time EST time', async () => {
     const response = {
       data: {
         currentDateTime: '2018-10-26T06:21-04:00',
@@ -27,7 +27,7 @@ describe('Requests', () => {
     expect(time).toEqual('2018-10-26T06:21-04:00');
   });
 
-  it('CET time request should response with the correct time', async () => {
+  it('Should response with the correct CET time', async () => {
     const response = {
       data: {
         currentDateTime: '2018-10-26T17:15+02:00',
@@ -44,7 +44,7 @@ describe('Requests', () => {
     expect(time).toEqual('2018-10-26T17:15+02:00');
   });
 
-  it('UTC time request should response with the correct time', async () => {
+  it('Should response with the correct UTC time', async () => {
     const response = {
       data: {
         currentDateTime: '2018-10-26T16:04Z',
