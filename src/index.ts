@@ -2,6 +2,7 @@ import * as dotenv from 'dotenv';
 import * as http from 'http';
 
 import {
+  formatTime,
   getVersionNotification,
 } from './utils';
 import {
@@ -28,9 +29,9 @@ const server = http.createServer(async (req, res) => {
 
   res.end(`
     ${appVersionNotification}
-    ${estTime}
-    ${cetTime}
-    ${utcTime}
+    ${formatTime({ dateTime: estTime, type: 'EST' })}
+    ${formatTime({ dateTime: cetTime, type: 'CET' })}
+    ${formatTime({ dateTime: utcTime, type: 'UTC' })}
   `);
 });
 

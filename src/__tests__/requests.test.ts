@@ -12,6 +12,10 @@ import {
 
 jest.mock('axios');
 
+afterEach(() => {
+  jest.clearAllMocks();
+});
+
 it('EST time request should response with correct time', async () => {
   const response = {
     data: {
@@ -27,7 +31,7 @@ it('EST time request should response with correct time', async () => {
   expect(axios.get).toHaveBeenCalledTimes(1);
   expect(axios.get).toHaveBeenCalledWith(URL_EST_TIME);
 
-  expect(time).toEqual('Current EST time: 2018-10-26T06:21-04:00');
+  expect(time).toEqual('2018-10-26T06:21-04:00');
 });
 
 it('CET time request should response with the correct time', async () => {
@@ -44,8 +48,9 @@ it('CET time request should response with the correct time', async () => {
 
   expect(axios.get).toHaveBeenCalledTimes(1);
   expect(axios.get).toHaveBeenCalledWith(URL_CET_TIME);
-  expect(time).toEqual('Current CET time: 2018-10-26T17:15+02:00');
+  expect(time).toEqual('2018-10-26T17:15+02:00');
 });
+
 it('UTC time request should response with the correct time', async () => {
   const response = {
     data: {
@@ -60,5 +65,5 @@ it('UTC time request should response with the correct time', async () => {
 
   expect(axios.get).toHaveBeenCalledTimes(1);
   expect(axios.get).toHaveBeenCalledWith(URL_UTC_TIME);
-  expect(time).toEqual('Current UTC time: 2018-10-26T16:04Z');
+  expect(time).toEqual('2018-10-26T16:04Z');
 });
