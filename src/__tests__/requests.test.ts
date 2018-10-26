@@ -15,6 +15,7 @@ it('EST time request should response with correct time', async () => {
     },
   };
 
+  // @ts-ignore
   axios.get.mockResolvedValue(response);
 
   const time = await getCurrentESTTime();
@@ -22,5 +23,5 @@ it('EST time request should response with correct time', async () => {
   expect(axios.get).toHaveBeenCalledTimes(1);
   expect(axios.get).toHaveBeenCalledWith(URL_EST_TIME);
 
-  expect(time).toEqual('2018-10-26T06:21-04:00');
+  expect(time).toEqual('Current EST time: 2018-10-26T06:21-04:00');
 });

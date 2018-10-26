@@ -7,7 +7,7 @@
     "sourceMap": true,
     "outDir": "dist",
     "rootDir": "src",
-    "composite": true,
+//    "composite": true,
     "strict": true,
     "moduleResolution": "node",
     "baseUrl": ".",
