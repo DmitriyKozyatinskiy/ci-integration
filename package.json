@@ -8,7 +8,7 @@
     "node": "^11.0.0"
   },
   "scripts": {
-    "start": "VERSION=$(git describe) nodemon --inspect --watch 'src/**/*.ts' --exec 'node -r ts-node/register' src/index.ts",
+    "start": "nodemon --inspect --watch 'src/**/*.ts' --exec 'node -r ts-node/register' src/index.ts",
     "build": "tsc -p .",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "test": "jest --coverage --verbose",

@@ -4,7 +4,6 @@ import * as http from 'http';
 import {
   getVersionNotification,
 } from './utils';
-
 import {
   getCurrentESTTime,
   getCurrentCETTime,

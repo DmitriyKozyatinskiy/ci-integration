@@ -1,5 +1,8 @@
 import axios from 'axios';
-import { getCurrentESTTime } from '../requests';
+import {
+  getCurrentESTTime,
+  getCurrentCETTime,
+} from '../requests';
 import {
   URL_EST_TIME,
   URL_CET_TIME,
@@ -25,6 +28,7 @@ it('EST time request should response with correct time', async () => {
 
   expect(time).toEqual('Current EST time: 2018-10-26T06:21-04:00');
 });
+
 it('CET time request should response with the correct time', async () => {
   const response = {
     data: {
@@ -35,7 +39,7 @@ it('CET time request should response with the correct time', async () => {
   // @ts-ignore
   axios.get.mockResolvedValue(response);
 
-  const time = await getCurrentESTTime();
+  const time = await getCurrentCETTime();
 
   expect(axios.get).toHaveBeenCalledTimes(1);
   expect(axios.get).toHaveBeenCalledWith(URL_CET_TIME);
