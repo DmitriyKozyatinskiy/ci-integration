@@ -22,6 +22,7 @@ const server = http.createServer(async (req, res) => {
 
   res.end(`
     ${appVersionNotification}
+
     ${formatTime({ dateTime: estTime, type: 'EST' })}
     ${formatTime({ dateTime: cetTime, type: 'CET' })}
     ${formatTime({ dateTime: utcTime, type: 'UTC' })}
