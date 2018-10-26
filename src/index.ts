@@ -1,15 +1,8 @@
 import * as dotenv from 'dotenv';
 import * as http from 'http';
 
-import {
-  formatTime,
-  getVersionNotification,
-} from './utils';
-import {
-  getCurrentESTTime,
-  getCurrentCETTime,
-  getCurrentUTCTime,
-} from './requests';
+import { formatTime, getVersionNotification } from './utils';
+import { getCurrentESTTime, getCurrentCETTime, getCurrentUTCTime } from './requests';
 
 dotenv.config();
 
