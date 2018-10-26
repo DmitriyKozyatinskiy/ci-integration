@@ -6,5 +6,8 @@ export const formatTime = ({ dateTime, type }: { dateTime: string, type: string 
 
   return `Current ${type} time: ${date.split('-')
     .reverse()
-    .join('.')} ${time.replace(/[Z+-].*/i, '')}`;
+    .join('.')} ${cleanupTime(time)}`;
 };
+
+export const cleanupTime = (time: string) =>
+  time.replace(/[Z+-].*/i, '');
