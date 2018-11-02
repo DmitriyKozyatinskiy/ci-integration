@@ -1,7 +1,6 @@
 const path = require('path');
 const { DefinePlugin } = require('webpack');
 const { spawnSync } = require('child_process');
-
 const Dotenv = require('dotenv-webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
