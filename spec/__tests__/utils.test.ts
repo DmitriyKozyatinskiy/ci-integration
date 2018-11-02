@@ -1,4 +1,4 @@
-import { getVersionNotification, formatTime, cleanupTime } from '../utils';
+import { getVersionNotification, formatTime, cleanupTime } from '../../src/utils';
 
 describe('Utils', () => {
   it('Should generated correct version string', () => {

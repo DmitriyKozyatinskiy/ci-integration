@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { getCurrentESTTime, getCurrentCETTime, getCurrentUTCTime } from '../requests';
-import { URL_EST_TIME, URL_CET_TIME, URL_UTC_TIME } from '../constants';
+import { getCurrentESTTime, getCurrentCETTime, getCurrentUTCTime } from '../../src/requests';
+import { URL_EST_TIME, URL_CET_TIME, URL_UTC_TIME } from '../../src/constants';
 
 jest.mock('axios');
 

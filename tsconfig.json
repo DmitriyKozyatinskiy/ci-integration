@@ -1,13 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
     "module": "commonjs",
-    "lib": ["es6", "dom"],
+    "lib": ["es2016"],
     "allowJs": true,
     "sourceMap": true,
     "outDir": "dist",
     "rootDir": "src",
-//    "composite": true,
     "strict": true,
     "moduleResolution": "node",
     "baseUrl": ".",

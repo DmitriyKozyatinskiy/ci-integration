@@ -1,10 +1,7 @@
-import * as dotenv from 'dotenv';
 import * as http from 'http';
 
 import { formatTime, getVersionNotification } from './utils';
 import { getCurrentESTTime, getCurrentCETTime, getCurrentUTCTime } from './requests';
-
-dotenv.config();
 
 const { HOSTNAME = '127.0.0.1', PORT = '8000', VERSION } = process.env;
 
