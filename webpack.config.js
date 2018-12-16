@@ -32,7 +32,7 @@ module.exports = (env, argv) => {
     plugins: [
       new CleanWebpackPlugin(['dist']),
       new Dotenv({
-        path: './.env',
+        path: isProduction ? './.env.prod' : './.env',
       }),
       new DefinePlugin({
         'process.env.VERSION': JSON.stringify(currentVersion.stdout.toString()),
