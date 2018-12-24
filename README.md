@@ -14,3 +14,7 @@ Implemented by IPS team
 
 ## Production:
 - `npm run build` - build production-ready bundle at `/dist/bundle.js`
+
+## Dockerizing:
+- `docker build -t app .` - create image
+- `docker run -p 3000:3000 app` - run container with the server at <http://0.0.0.0:3000/>
