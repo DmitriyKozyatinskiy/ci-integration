@@ -3,7 +3,7 @@ import * as http from 'http';
 import { formatTime, getVersionNotification } from './utils';
 import { getCurrentESTTime, getCurrentCETTime, getCurrentUTCTime } from './requests';
 
-const { HOSTNAME = '127.0.0.1', PORT = '8000', VERSION } = process.env;
+const { HOSTNAME = '0.0.0.0', PORT = '3000', VERSION } = process.env;
 
 const server = http.createServer(async (req, res) => {
   res.statusCode = 200;
